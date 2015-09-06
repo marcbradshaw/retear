@@ -1,0 +1,78 @@
+
+History File for ReTear v2.00 onwards
+ReTear v2.00+ (c) dBnY^nBS 1998
+
+--------------------------------------------------------------------
+
+1.x  - Original code/idea by Raven
+       ReTear 2.x is based on these ideas but has been
+       totally recoded from the ground up!
+
+2.0x - 16 Feb 1998
+
+        Complete Recode
+        Functions include
+            Config File Driven
+            Multiple Kludge/Tearline Replace
+            Multiple (Cyclic) Replace Strings
+            Stable (ish)
+        Tests show this is actually quite a bit faster than
+         ReTear v1.x too!!!
+
+        Currently puts $FF at the end of the outfile and I cant
+         figure out why its doing it! :(  I'm guessing its writing
+         out the EOF to the file. <grrrr>
+
+2.01 - 18 Feb 1998
+
+        Mental note - next time get the EOF checking the right way
+         around! :)   FIXED!
+        FIRST PUBLIC RELEASE!!!  Yay!! Yay!! Yay!!
+
+2.02 - 23 Feb 1998
+
+        Should now compile under SAS/C ;)
+        Created small ARexx script to ReTear all packets in a given
+        directory.
+     ** Order of args changed to [{flag}] <cfg> <in> <out>
+        Doesnt need filenames when just viewing config, and now
+        "ReTear -a" works as it should have done all along! :)
+
+2.03 - 12 Mar 1998
+
+        Config File under PC bug fixed.
+        Now reads packet structure properly, not just as lines of
+        text.
+        Message Count Implemented.
+        Error Codes sorted out And documented.
+        Source made modular!
+
+2.04 - 12 Mar 1998
+
+        Internal improvements to facilitate whole directory retears
+        without need for external scripts.
+        n.b. this will be a future update, scripts are still needed!
+        Mental Note - Learn To Read Docs!!!
+            month and orig net bugs fixed! ;)
+        Added Adding Of Kludges to start of msg option 'I'
+
+2.05 - 19 Mar 1998
+
+        LARTed Raven...   main read routine bugfixed! ;)
+
+2.06 - 20 Mar 1998
+
+        Multiple (Random) Inserts now work.  Update config file
+        accordingly! :)
+
+2.07 - 25 March 1998
+
+        If first char of insert is NOT a kludge it will be made so.
+        as NON KLUDGE INSERTS WILL BREAK MESSAGES
+
+2.08 - 06 April 1998
+
+        Comments in config file using ;
+
+--------------------------------------------------------------------
+

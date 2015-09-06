@@ -1,0 +1,145 @@
+                                                                   
+    88888888ba         888888888888
+    88      "8b             88
+    88      ,8P             88
+    88aaaaaa8P'  ,adPPYba,  88   ,adPPYba,  ,adPPYYba,  8b,dPPYba,
+    88""""88'   a8P_____88  88  a8P_____88  ""     `Y8  88P'   "Y8
+    88    `8b   8PP"""""""  88  8PP"""""""  ,adPPPPP88  88
+    88     `8b  "8b,   ,aa  88  "8b,   ,aa  88,    ,88  88
+    88      `8b  `"Ybbd8"'  88   `"Ybbd8"'  `"8bbdP"Y8  88     2.x
+                                                                   
+    88888888888888888888888888888888888888888888888888888888888888
+
+                    ReTear 2.x by dBnY^nBS / Raven
+                    Use "ReTear -a" for more info!
+
+
+Usage:
+ReTear [{flag}] <config file> <in.pkt> <out.pkt>
+
+Flags:
+
+-v : View config and exit.
+-a : Show contact info.
+
+
+
+Description:
+
+ReTear is a multipurpose search/replace utility designed to replace/delete or
+show kludges and tearlines in fidonet packets.
+Its main uses are removing unwanted Kludge lines, Allowing you to customise
+your TearLines and Kludge Lines (eg. PID:) and/or outputting these for stats
+generation.
+
+You should create one or more config files to suit your needs, ReTear is best
+used from scripts/batch files, included is an ARexx script to ReTear every
+packet in a given directory.
+
+
+
+Error Codes:
+
+    0       It Worked! ;)
+    10      No Config File.
+    11      Error opening Source packet.
+    12      Error opening Destination packet.
+    20      Source packet has invalid header.
+    21      Error in source packet.
+    22      Source packet is too short.
+    30      Error in Config File.
+                ** should NEVER happen, errors are reported to
+                stdout and error 10 (No Config File) results as
+                Config is nullified.
+    103     Memory Allocation Error.
+
+
+
+Config File Layout:
+
+TYPE Character
+List of options
+<blank line>
+TYPE Character
+List of options
+<blank line>
+E
+
+Types are
+    V - View
+    R - Replace
+    D - Delete
+    I - Insert Kludge at start of msg
+
+For Insert ONLY
+    first line      - what the thing is (the id string)
+    there follows a list of Kludges which will be added in rotation
+    to the start of every message.
+    If you do not explicitly include the \1 at the start it will be
+    added for you, however if you do it will not be added twice, this
+    is to stop you breaking messages! :)
+    N.B. use multiple 'I' lines for multiple additions from 1.06
+    and above please!
+
+The Rest Of The Options are
+    first line      - what to look for (the find string)
+    second line     - what this is (the id string)
+    remaining lines - what to replace this thing with
+                        (list of replace strings) for type R only
+
+lines may be in "" chars and contain \1 \" \\ \n \r format strings
+
+if the config file contains errors then ReTear will throw it out! :)
+
+
+
+Example config file:
+
+***** begin config file *****
+I
+ReTear Kludge
+\1ReTorn: ReTear 2.0x
+\1ReTorn: ReTear - dBnY^nBS
+
+I
+The Mood Kludge
+\1MOOD: Whatever!
+\1MOOD: Silly!
+
+D
+"\1SYSOP: "
+Sysop Kludge
+
+R
+"--- "
+Tearline
+Mercyground
+Tear Tear BlahBlahBlah
+ReTear2.0x - Groovy!
+
+R
+"\1PID: "
+PID Line
+Cheese?
+Silly Walks?
+I Like Traffic Lights
+ReTear2.0x - Funky!
+
+E
+***** End Config File *****
+
+
+
+Credits:
+
+ReTear 1.0, - Original idea and first run code - Raven
+ReTear 1.1+ - dBnY^nBS/Raven
+ReTear 2.x  - dBnY^nBS
+ReTear.rexx - dBnY^nBS
+
+
+
+Disclaimer:
+
+ReTear should NOT be used to hide the use of pirate mailer keyfiles.
+

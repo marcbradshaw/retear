@@ -1,0 +1,7 @@
+Info...
+
+Docs        Documentation which you should read! :)
+Configs     Example Config Files
+Source      C Source Files
+AmigaOS     AmigaOS executables
+MSDos       MSDos executables (more info in dir)
